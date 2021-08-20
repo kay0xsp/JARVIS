@@ -5,7 +5,7 @@
       <p>Welcome to the dashboard</p>
     </div>
     <div id="mini_block">
-      <money />
+      <datep />
       <money />
       <money />
       <money />
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import datep from "../components/date.vue";
 import money from "../components/money.vue";
 import skills from "../components/skills.vue";
 import counter from "../components/counter.vue";
@@ -27,6 +28,7 @@ import liste from "../components/liste.vue";
 export default {
   name: "Home",
   components: {
+    datep,
     money,
     liste,
     counter,

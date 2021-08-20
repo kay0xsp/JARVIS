@@ -4,6 +4,7 @@
 
 <style>
 .mini_panel {
+  padding: 3em;
   margin: 0 1em;
   background-color: white;
   border-radius: 0.25rem;
