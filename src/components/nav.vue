@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: "nav",
+  name: "Navigation",
 
   data() {
     return {

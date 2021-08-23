@@ -2,11 +2,11 @@
   <div class="box1">
     <p id="p_appli"><span class="material-icons"> schedule </span>COUNTER</p>
     <div class="counter">
-      {{ $store.state.counter }}
+      {{ $store.state.counterMU.counter }}
     </div>
     <div>
       <center>
-        {{ $store.state.counter }}
+        {{ $store.state.counterMU.counter }}
         <sup>2</sup>
         {{ $store.getters.counterSquared }}
       </center>
@@ -20,14 +20,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-  methods: {},
-};
-</script>
+<script></script>
 
 <style>
 .counter {

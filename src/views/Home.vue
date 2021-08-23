@@ -14,11 +14,13 @@
       <liste />
       <skills />
       <counter />
+      <counter-muted />
     </div>
   </div>
 </template>
 
 <script>
+import counterMuted from "../components/counterMuted.vue";
 import datep from "../components/date.vue";
 import money from "../components/money.vue";
 import skills from "../components/skills.vue";
@@ -28,6 +30,7 @@ import liste from "../components/liste.vue";
 export default {
   name: "Home",
   components: {
+    counterMuted,
     datep,
     money,
     liste,
