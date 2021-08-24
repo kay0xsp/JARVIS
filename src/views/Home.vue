@@ -11,15 +11,15 @@
       <money />
     </div>
     <div id="home_block">
-      <liste />
       <skills />
-      <counter />
-      <counter-muted />
+
+      <Mymap />
     </div>
   </div>
 </template>
 
 <script>
+import Mymap from "../components/map.vue";
 import counterMuted from "../components/counterMuted.vue";
 import datep from "../components/date.vue";
 import money from "../components/money.vue";
@@ -30,6 +30,7 @@ import liste from "../components/liste.vue";
 export default {
   name: "Home",
   components: {
+    Mymap,
     counterMuted,
     datep,
     money,
