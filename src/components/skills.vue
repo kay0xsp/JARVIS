@@ -17,7 +17,7 @@
         </transition-group>
       </ul>
       <p v-if="skills.length >= 1" id="monkey">Only one skill?</p>
-      <p v-else-if="skills.length >= 2" id="monkey">More than one skill</p>
+      <p v-else-if="skills.length >= 2" id="monkey">More than one skill I SEE</p>
       <p v-else id="monkey">You have no skills?</p>
     </div>
   </div>
