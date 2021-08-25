@@ -1,5 +1,5 @@
 <template>
-  <div class="box1">
+  <div class="box2">
     <div style="height: 500px; width: 100%">
       <l-map
         v-if="showMap"
@@ -24,11 +24,8 @@
         </l-marker>
       </l-map>
       <div class="map_text">
-        <button id="find-me">
-          Show my location <br />
-          {{ long }}, {{ lat }}</button
-        ><br />
-        <p id="status"></p>
+        <button id="find-me">Show my location {{ hello }} {{ withPopup }}<br /></button><br />
+
         <a id="map-link" target="_blank"></a>
       </div>
     </div>
@@ -36,7 +33,6 @@
 </template>
 
 <script>
-import { latLng } from "leaflet";
 import { LMap, LTileLayer, LMarker, LPopup, LTooltip } from "vue2-leaflet";
 import { Icon } from "leaflet";
 
@@ -60,13 +56,13 @@ export default {
   data() {
     return {
       zoom: 13,
-      center: latLng(43.65382, 1.33216),
+      center: [],
+      withPopup: [],
+      hello: ["SALUT", " MOUKAT"],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      withPopup: latLng(43.65382, 1.33216),
       currentZoom: 11.5,
       showParagraph: false,
-      currentCenter: latLng(43.65382, 1.33216),
       mapOptions: {
         zoomSnap: 2.0,
       },
@@ -88,13 +84,18 @@ export default {
     },
   },
   mounted: function () {
+    this.withPopup = [43, 1];
+    this.center = [43, 1];
+
     if (navigator.geolocation) {
       var self = this;
+
       navigator.geolocation.getCurrentPosition(function (position) {
         self.position = position.coords;
-        let lat = position.coords.latitude;
-        let long = position.coords.longitude;
-        document.getElementById("status").innerHTML = lat + " " + long;
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+
+        document.getElementById("map-link").innerHTML = lat + " " + long;
       });
     }
   },

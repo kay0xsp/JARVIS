@@ -12,7 +12,7 @@
     </div>
     <div id="home_block">
       <skills />
-
+      <employees />
       <Mymap />
     </div>
   </div>
@@ -26,10 +26,12 @@ import money from "../components/money.vue";
 import skills from "../components/skills.vue";
 import counter from "../components/counter.vue";
 import liste from "../components/liste.vue";
+import employees from "../components/employees.vue";
 
 export default {
   name: "Home",
   components: {
+    employees,
     Mymap,
     counterMuted,
     datep,

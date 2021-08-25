@@ -1,6 +1,7 @@
 <template>
   <v-app grey lighten-2>
     <Navbar />
+    {{ msg }}
     <v-main>
       <router-view />
     </v-main>
