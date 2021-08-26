@@ -1,24 +1,21 @@
 <template>
   <div>
+    <p id="p_appli"><span class="material-icons"> reorder </span>{{ name }}</p>
     <div id="#liste" class="box1">
-      <p id="p_appli"><span class="material-icons"> build </span>{{ name }}</p>
-      <form @submit.prevent="addSkill">
-        <input type="text" placeholder="Enter your Skills" v-model="theskill" />
+      <form @submit.prevent="addSkill" class="todolist">
+        <input type="text" placeholder="ENTER TASK" v-model="theskill" />
 
         {{ theskill }}
       </form>
 
       <ul id="app_liste">
         <transition-group name="list" enter-active-class="animate__animated animate__bounceInDown">
-          <li v-for="(data, index) in skills" :key="data" class="liapp">
-            {{ index }} | {{ data }}
-            <i class="fas fa-minus-circle" v-on:click="remove(index)"></i>
+          <li v-for="(data, index) in todo" :key="data" class="liapp boxy-shadow">
+            {{ data }}
+            <i class="fas fa-trash-alt" v-on:click="remove(index)"></i>
           </li>
         </transition-group>
       </ul>
-      <p v-if="skills.length >= 1" id="monkey">Only one skill?</p>
-      <p v-else-if="skills.length >= 2" id="monkey">More than one skill I SEE</p>
-      <p v-else id="monkey">You have no skills?</p>
     </div>
   </div>
 </template>
@@ -29,17 +26,17 @@ export default {
   data() {
     return {
       theskill: "",
-      name: "YOUR SKILLS",
-      skills: ["Vue.js", "PHP", "JAVA", "CSS3", "C#"],
+      name: "Task List",
+      todo: ["WORKOUT", "Groceries", "Take out the trash", "Learn vue", "call PE"],
     };
   },
   methods: {
     addSkill() {
-      this.skills.push(this.theskill);
+      this.todo.push(this.theskill);
       this.theskill = "";
     },
     remove(id) {
-      this.skills.splice(id, 1);
+      this.todo.splice(id, 1);
     },
   },
   props: {
@@ -58,35 +55,30 @@ v-app {
   width: 450px;
   display: block;
   min-height: 450px;
-  margin: 1em;
-  background-color: white;
-  border-radius: 0.25rem;
+  margin: 0em 1em 1em 1em;
 
+  border-radius: 0.5rem;
+  padding: 1em;
+}
+
+.boxy-shadow {
+  background-color: white;
   box-shadow: 0 1px 1px rgba(211, 211, 211, 0.12), 0 2px 2px rgba(223, 223, 223, 0.12),
     0 4px 4px rgba(221, 221, 221, 0.12), 0 8px 8px rgba(221, 221, 221, 0.12),
     0 16px 16px rgba(196, 196, 196, 0.12);
 }
 
-#monkey {
-  padding: 1em 0 1em 2em !important;
-  font-size: 1em;
-  display: block;
-  border-left: 5px solid indigo;
-}
-
 #app_liste {
   padding: 0;
-  margin: 0;
+  margin: 1em 0 0 0;
   list-style-type: none;
 }
 
-input {
-  width: 415px;
+.todolist input {
+  width: 100%;
   display: block;
-  padding: 2rem 2rem;
-  overflow: hidden;
-  margin: 1em;
-
+  padding: 1rem 2rem;
+  clear: both;
   border: 1px solid rgb(196, 196, 196) !important;
 }
 
@@ -95,10 +87,6 @@ input {
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
-}
-
-#liste {
-  background-color: white;
 }
 
 .box1 li {
@@ -113,13 +101,11 @@ h2 {
 }
 
 .liapp {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: block;
-  padding: 0.5em 2rem;
-  margin: 1px;
-}
-p {
-  padding-top: 10rem;
-  font-size: 3rem;
+  padding: 0.8em 2rem;
+  margin: 10px 0;
+  border-radius: 0.5em;
+  text-transform: uppercase;
 }
 </style>

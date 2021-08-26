@@ -4,7 +4,7 @@
     <v-navigation-drawer v-model="drawer" mini-variant mini-variant-width="400" app temporary class="indigo">
       <!-- START OF LIST-->
 
-      <v-list class="fill-height">
+      <v-list>
         <!-- FIRST TILE -->
         <v-list-tile>
           <router-link v-for="link in links" :key="link.text" class="router-link2" :to="link.route">
@@ -26,8 +26,7 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar class="indigo yo">
-      <v-app-bar-nav-icon class="white" @click="drawer = true"></v-app-bar-nav-icon>
-      <v-toolbar-title>MYGIS</v-toolbar-title>
+      <v-app-bar-nav-icon class="white logo-icon" @click="drawer = true"></v-app-bar-nav-icon>
     </v-app-bar>
   </div>
 </template>
@@ -51,8 +50,11 @@ export default {
 
 <style>
 .yo {
-  color: white !important;
+  font-family: "orbitron";
+  margin: 2em 0 0 2em !important;
+  box-shadow: none !important;
 }
+
 .router-link2 {
   text-decoration: none;
   color: white !important;

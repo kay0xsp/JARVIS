@@ -1,17 +1,20 @@
 <template>
-  <div class="box1">
-    <table id="employees">
-      <tr>
-        <td>Name</td>
-        <td>Age</td>
-        <td>Salary</td>
-      </tr>
-      <tr v-for="item in list" :key="item.id">
-        <td>{{ item.employee_name }}</td>
-        <td>{{ item.employee_age }} YO |</td>
-        <td>{{ item.employee_salary }}| €NET</td>
-      </tr>
-    </table>
+  <div>
+    <p id="p_appli"><span class="material-icons"> groups </span>{{ name }}</p>
+    <div class="box1 boxy-shadow">
+      <table id="employees">
+        <tr>
+          <td>Name</td>
+          <td>Mobile phone</td>
+          <td>Adress</td>
+        </tr>
+        <tr v-for="item in list" :key="item.id">
+          <td>{{ item.emp_name }}</td>
+          <td>{{ item.emp_mobile_nos }}</td>
+          <td>{{ item.emp_adress }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -24,13 +27,14 @@ Vue.use(VueAxios, axios);
 export default {
   data() {
     return {
+      name: "Friends list",
       list: undefined,
     };
   },
   mounted() {
-    Vue.axios.get("http://localhost:8080/").then((resp) => {
-      this.list = resp.data.data;
-      console.warn(resp.data.data);
+    Vue.axios.get("http://localhost:8080/company/employees").then((resp) => {
+      this.list = resp.data;
+      console.warn(resp.data);
     });
     // Vue.axios.get("http://dummy.restapiexample.com/api/v1/employees").then((resp) => {
     //   this.list = resp.data.data;

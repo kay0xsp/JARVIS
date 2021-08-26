@@ -1,32 +1,35 @@
 <template>
-  <div class="box2">
-    <div style="height: 500px; width: 100%">
-      <l-map
-        v-if="showMap"
-        :zoom="zoom"
-        :center="center"
-        :options="mapOptions"
-        style="height: 80%"
-        @update:center="centerUpdate"
-        @update:zoom="zoomUpdate"
-      >
-        <l-tile-layer :url="url" :attribution="attribution" />
-        <l-marker :lat-lng="withPopup">
-          <l-popup>
-            <div @click="innerClick">
-              I am a popup
-              <p v-show="showParagraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed pretium nisl, ut sagittis
-                sapien. Sed vel sollicitudin nisi. Donec finibus semper metus id malesuada.
-              </p>
-            </div>
-          </l-popup>
-        </l-marker>
-      </l-map>
-      <div class="map_text">
-        <button id="find-me">Show my location {{ hello }} {{ withPopup }}<br /></button><br />
+  <div>
+    <p id="p_appli"><span class="material-icons"> location_on </span>{{ name }}</p>
+    <div class="box2">
+      <div style="height: 500px; width: 100%">
+        <l-map
+          v-if="showMap"
+          :zoom="zoom"
+          :center="center"
+          :options="mapOptions"
+          style="height: 80%"
+          @update:center="centerUpdate"
+          @update:zoom="zoomUpdate"
+        >
+          <l-tile-layer :url="url" :attribution="attribution" />
+          <l-marker :lat-lng="withPopup">
+            <l-popup>
+              <div @click="innerClick">
+                I am a popup
+                <p v-show="showParagraph">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed pretium nisl, ut
+                  sagittis sapien. Sed vel sollicitudin nisi. Donec finibus semper metus id malesuada.
+                </p>
+              </div>
+            </l-popup>
+          </l-marker>
+        </l-map>
+        <div class="map_text">
+          <button id="find-me">Show my location {{ withPopup }}<br /></button><br />
 
-        <a id="map-link" target="_blank"></a>
+          <a id="map-link" target="_blank"></a>
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +48,7 @@ Icon.Default.mergeOptions({
 });
 
 export default {
-  name: "Example",
+  name: "Map",
   components: {
     LMap,
     LTileLayer,
@@ -55,9 +58,10 @@ export default {
   },
   data() {
     return {
+      name: "Map",
       zoom: 13,
-      center: [],
-      withPopup: [],
+      center: [43, 1],
+      withPopup: [43, 1],
       hello: ["SALUT", " MOUKAT"],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
@@ -84,8 +88,8 @@ export default {
     },
   },
   mounted: function () {
-    this.withPopup = [43, 1];
-    this.center = [43, 1];
+    // this.withPopup = [43, 1];
+    // this.center = [43, 1];
 
     if (navigator.geolocation) {
       var self = this;
