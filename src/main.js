@@ -3,6 +3,8 @@ import router from "./router";
 import App from "./App.vue";
 import Vuex from "vuex";
 
+import anime from "animejs/lib/anime.es.js";
+
 //LEAFLET
 import { LMap, LTileLayer, LMarker } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -26,6 +28,7 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
 
 new Vue({
+  anime,
   router,
   store,
   vuetify,

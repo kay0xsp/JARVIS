@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar_media boxy-shadow indigo">
+  <div class="sidebar_media">
     <h1>JARVIS 1.0</h1>
     <navbar />
     <ul>
@@ -39,8 +39,8 @@ export default {
 .sidebar_media {
   width: 120px;
   height: 100%;
-  border-radius: 1em;
-  margin: 0.25em;
+  background: #1f2940;
+  border-right: 1px solid black;
 }
 
 .sidebar_media ul {
@@ -64,5 +64,30 @@ export default {
   width: 100%;
   background-blend-mode: difference;
   filter: invert(100%);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .yo {
+    padding: 1.5em 1.5em !important;
+    margin: 0 !important;
+    max-width: 100px;
+  }
+  .sidebar_media {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+  }
+  .sidebar_media h1 {
+    display: none;
+  }
+  .sidebar_media ul {
+    width: 100%;
+    margin: 0 0 0 2rem;
+    flex-direction: row;
+  }
+  .sidebar_media ul li {
+    margin: 2em 1.5em;
+  }
 }
 </style>

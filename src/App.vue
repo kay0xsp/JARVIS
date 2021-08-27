@@ -16,19 +16,25 @@ export default {
 </script>
 
 <style>
+strong {
+  text-transform: uppercase;
+}
+.p_white {
+  color: white;
+}
 body {
   background: transparent;
   font-family: "anonymousregular";
-  padding: 0.1em;
 }
 
 .main {
   display: flex;
   justify-content: space-around;
+  margin: 0 !important;
 }
 
 .theme--light.v-application {
-  background-color: rgb(243, 242, 242) !important;
+  background-color: #141b2d !important;
 }
 
 #p_appli {
@@ -37,7 +43,7 @@ body {
   margin: 0 !important;
   font-weight: lighter;
   text-align: left;
-  color: #4169e1;
+  color: #fff;
   font-family: "orbitron";
 }
 

@@ -7,41 +7,49 @@
       <div class="mypp">DASHBOARD</div>
       <div id="mini_block">
         <datep />
-        <money />
-        <money />
-        <money />
+        <ip />
+        <networks />
+        <battery />
       </div>
       <div id="home_block">
+        <weather />
+        <mymap />
         <todo />
         <employees />
-        <Mymap />
+        <specs />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import battery from "../components/battery.vue";
+import networks from "../components/network.vue";
+import specs from "../components/specs.vue";
+import weather from "../components/weather.vue";
+import calendar from "../components/calendar.vue";
 import sidebarMedia from "../components/socialMedia.vue";
 import Mymap from "../components/map.vue";
-import counterMuted from "../components/counterMuted.vue";
 import datep from "../components/date.vue";
-import money from "../components/money.vue";
+import ip from "../components/ip_adress.vue";
 import todo from "../components/todo.vue";
-import counter from "../components/counter.vue";
 import liste from "../components/todo.vue";
 import employees from "../components/employees.vue";
 
 export default {
   name: "Home",
   components: {
+    battery,
+    networks,
+    specs,
+    weather,
+    calendar,
     sidebarMedia,
     employees,
     Mymap,
-    counterMuted,
     datep,
-    money,
+    ip,
     liste,
-    counter,
     todo,
   },
 };
@@ -53,11 +61,10 @@ export default {
   justify-content: flex-start;
   height: 100%;
 }
-.box3 {
-  display: block;
-  width: 120px;
-  height: 100%;
+.bigBox {
+  padding: 2em;
 }
+
 #mini_block {
   display: flex !important;
   justify-content: space-between;
@@ -80,19 +87,20 @@ export default {
 #home_block {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .box2 {
-  width: 650px;
+  width: 500px;
   display: block;
-  min-height: 450px;
+  height: 100%;
+  max-height: 540px;
   margin: 0 1em 1em 1em;
-  background-color: white;
-  border-radius: 0.8rem;
-
-  box-shadow: 0 1px 1px rgba(211, 211, 211, 0.12), 0 2px 2px rgba(223, 223, 223, 0.12),
-    0 4px 4px rgba(221, 221, 221, 0.12), 0 8px 8px rgba(221, 221, 221, 0.12),
-    0 16px 16px rgba(196, 196, 196, 0.12);
+  background-color: #1f2940;
+  border-radius: 0.25rem;
+  padding: 1em;
+  color: white;
+  text-align: center;
 }
 
 .paragraphe {
@@ -102,6 +110,9 @@ export default {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .mainBox {
+    flex-direction: column;
+  }
   #home_block {
     flex-direction: column;
     justify-content: first baseline;
@@ -118,6 +129,10 @@ export default {
   .box1 {
     width: 650px;
     margin: auto;
+  }
+  .box2 {
+    margin: 0 auto;
+    width: 100%;
   }
 }
 </style>

@@ -3,15 +3,10 @@
     <p id="p_appli"><span class="material-icons"> groups </span>{{ name }}</p>
     <div class="box1 boxy-shadow">
       <table id="employees">
-        <tr>
-          <td>Name</td>
-          <td>Mobile phone</td>
-          <td>Adress</td>
-        </tr>
         <tr v-for="item in list" :key="item.id">
           <td>{{ item.emp_name }}</td>
           <td>{{ item.emp_mobile_nos }}</td>
-          <td>{{ item.emp_adress }}</td>
+          <!-- <td>{{ item.emp_adress }}</td> -->
         </tr>
       </table>
     </div>
@@ -49,14 +44,18 @@ export default {
   display: flex;
   justify-content: space-evenly;
   display: block;
+  color: white;
 }
 #employees tr {
-  width: 100%;
+  border-radius: 0.25em;
+  border: none;
+  background: #1f2940;
 }
 
 #employees tr td {
+  border-radius: 0.25em;
   width: 100%;
-  min-width: 100px;
+  min-width: 150px;
   padding: 1em;
 }
 </style>

@@ -25,7 +25,7 @@
         <!-- END OF THE TILE-->
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar class="indigo yo">
+    <v-app-bar class="yo">
       <v-app-bar-nav-icon class="white logo-icon" @click="drawer = true"></v-app-bar-nav-icon>
     </v-app-bar>
   </div>
@@ -53,6 +53,7 @@ export default {
   font-family: "orbitron";
   margin: 2em 0 0 2em !important;
   box-shadow: none !important;
+  background: #1f2940 !important;
 }
 
 .router-link2 {

@@ -1,6 +1,6 @@
 <template>
-  <div class="mini_panel">
-    <h3>TODAY:</h3>
+  <div class="mini_panel indigo p_white">
+    <strong>TODAY:</strong> <br />
     {{ currentDate() }}
     <p id="date_p"></p>
   </div>

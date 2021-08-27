@@ -10,7 +10,7 @@
 
       <ul id="app_liste">
         <transition-group name="list" enter-active-class="animate__animated animate__bounceInDown">
-          <li v-for="(data, index) in todo" :key="data" class="liapp boxy-shadow">
+          <li v-for="(data, index) in todo" :key="data" class="liapp">
             {{ data }}
             <i class="fas fa-trash-alt" v-on:click="remove(index)"></i>
           </li>
@@ -27,7 +27,7 @@ export default {
     return {
       theskill: "",
       name: "Task List",
-      todo: ["WORKOUT", "Groceries", "Take out the trash", "Learn vue", "call PE"],
+      todo: ["Workout", "Groceries", "Take out the trash", "Learn vue", "call PE"],
     };
   },
   methods: {
@@ -59,13 +59,6 @@ v-app {
 
   border-radius: 0.5rem;
   padding: 1em;
-}
-
-.boxy-shadow {
-  background-color: white;
-  box-shadow: 0 1px 1px rgba(211, 211, 211, 0.12), 0 2px 2px rgba(223, 223, 223, 0.12),
-    0 4px 4px rgba(221, 221, 221, 0.12), 0 8px 8px rgba(221, 221, 221, 0.12),
-    0 16px 16px rgba(196, 196, 196, 0.12);
 }
 
 #app_liste {
@@ -101,11 +94,12 @@ h2 {
 }
 
 .liapp {
-  font-size: 1.3rem;
+  font-size: 1rem;
   display: block;
   padding: 0.8em 2rem;
-  margin: 10px 0;
-  border-radius: 0.5em;
-  text-transform: uppercase;
+  margin: 5px 0;
+  border-radius: 0.25em;
+  color: white;
+  background: #1f2940;
 }
 </style>

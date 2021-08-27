@@ -26,7 +26,10 @@
           </l-marker>
         </l-map>
         <div class="map_text">
-          <button id="find-me">Show my location {{ withPopup }}<br /></button><br />
+          <button id="find-me">
+            Current position <br />
+            {{ withPopup }}</button
+          ><br />
 
           <a id="map-link" target="_blank"></a>
         </div>
@@ -62,7 +65,6 @@ export default {
       zoom: 13,
       center: [43, 1],
       withPopup: [43, 1],
-      hello: ["SALUT", " MOUKAT"],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       currentZoom: 11.5,
@@ -88,18 +90,18 @@ export default {
     },
   },
   mounted: function () {
-    // this.withPopup = [43, 1];
-    // this.center = [43, 1];
-
     if (navigator.geolocation) {
       var self = this;
 
       navigator.geolocation.getCurrentPosition(function (position) {
         self.position = position.coords;
-        var lat = position.coords.latitude;
-        var long = position.coords.longitude;
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
 
-        document.getElementById("map-link").innerHTML = lat + " " + long;
+        self.withPopup = [lat, long];
+        self.center = [lat, long];
+        console.log(position);
+        // document.getElementById("map-link").innerHTML = lat + " " + long;
       });
     }
   },
@@ -107,10 +109,10 @@ export default {
 </script>
 
 <style>
-.map_text p {
+.map_text {
   display: block;
   font-size: 1em;
-  padding: 0;
+  padding: 1em 0;
   margin: 1.5em;
 }
 </style>
