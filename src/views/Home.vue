@@ -16,13 +16,15 @@
         <mymap />
         <todo />
         <employees />
-        <specs />
+
+        <addUser />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import addUser from "../components/addUser.vue";
 import battery from "../components/battery.vue";
 import networks from "../components/network.vue";
 import specs from "../components/specs.vue";
@@ -39,6 +41,7 @@ import employees from "../components/employees.vue";
 export default {
   name: "Home",
   components: {
+    addUser,
     battery,
     networks,
     specs,
