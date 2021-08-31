@@ -31,10 +31,6 @@ export default {
       this.list = resp.data;
       console.warn(resp.data);
     });
-    // Vue.axios.get("http://dummy.restapiexample.com/api/v1/employees").then((resp) => {
-    //   this.list = resp.data.data;
-    //   console.warn(resp.data.data);
-    // });
   },
 };
 </script>

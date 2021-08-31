@@ -9,13 +9,6 @@
 </template>
 
 <script>
-axios.defaults.baseURL = "http://localhost:8080/company";
-axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
-axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
-import axios from "axios";
-import VueAxios from "vue-axios";
-Vue.use(VueAxios, axios);
-
 export default {
   name: "PostComment",
   data() {
@@ -28,10 +21,12 @@ export default {
   },
   methods: {
     postData(e) {
-      this.axios.post("http://localhost:8080/company/employees", this.posts).then(() => {
+      this.axios.post("http://localhost:8080/company/employees", this.posts).then((res) => {
         console.warn(res);
+        e.preventDefault();
       });
-      e.preventDefault();
+      //   console.warn(this.posts);
+      //   e.preventDefault();
     },
   },
 };
